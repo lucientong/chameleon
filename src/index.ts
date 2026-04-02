@@ -82,10 +82,30 @@ export {
 } from './errors.js';
 
 // ============================================================================
-// Phase 2: GraphQL Generator (TODO)
+// Phase 2: GraphQL Generator
 // ============================================================================
-// export * from './generators/graphql-generator.js';
-// export * from './generators/type-generator.js';
+
+// GraphQL Generator
+export {
+  GraphQLGenerator,
+  generateGraphQL,
+  generateGraphQLTypeDefs,
+  type GraphQLGeneratorOptions,
+  type GraphQLGeneratorOutput,
+  type ResolverContext,
+  type ResolverFn,
+  type ResolverMap,
+  type OperationInfo,
+} from './generators/graphql-generator.js';
+
+// TypeScript Type Generator
+export {
+  TypeGenerator,
+  generateTypeScript,
+  generateTypeScriptCode,
+  type TypeGeneratorOptions,
+  type TypeGeneratorOutput,
+} from './generators/type-generator.js';
 
 // ============================================================================
 // Phase 3: Runtime and Gateway (TODO)
