@@ -1,0 +1,9 @@
+# Invalid OpenAPI document - missing required fields
+openapi: 3.0.0
+# Missing info section which is required
+paths:
+  /test:
+    get:
+      responses:
+        '200':
+          description: OK
