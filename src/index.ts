@@ -108,27 +108,167 @@ export {
 } from './generators/type-generator.js';
 
 // ============================================================================
-// Phase 3: Runtime and Gateway (TODO)
+// Phase 3: Runtime and Gateway
 // ============================================================================
-// export * from './runtime/translator.js';
-// export * from './runtime/validator.js';
-// export * from './generators/rest-generator.js';
+
+// Runtime Validator
+export {
+  Validator,
+  createValidator,
+  validateType,
+  assertValid,
+  type ValidatorOptions,
+  type ValidationResult,
+} from './runtime/validator.js';
+
+// Runtime Translator
+export {
+  Translator,
+  createTranslator,
+  createLoggingMiddleware,
+  createHeaderMiddleware,
+  createResponseTransformMiddleware,
+  createErrorMiddleware,
+  type TranslationContext,
+  type TranslationResult,
+  type TranslatorMiddleware,
+  type BackendHandler,
+  type TranslatorOptions,
+  type RouteInfo,
+} from './runtime/translator.js';
+
+// REST Generator
+export {
+  RestGenerator,
+  generateRestRoutes,
+  generateRouteConfigs,
+  type RouteConfig,
+  type RestGeneratorOutput,
+  type RestGeneratorOptions,
+  type FastifyRouteSchema,
+} from './generators/rest-generator.js';
+
+// Gateway
+export {
+  createGateway,
+  chameleonPlugin,
+  type Gateway,
+  type GatewayOptions,
+  type ChameleonPluginOptions,
+} from './server/gateway.js';
 
 // ============================================================================
-// Phase 4: Protobuf and gRPC (TODO)
+// Phase 4: Protobuf and gRPC
 // ============================================================================
-// export * from './parsers/protobuf.js';
-// export * from './generators/grpc-generator.js';
+
+// Protobuf Parser
+export {
+  ProtobufParser,
+  parseProtobufFile,
+  parseProtobufString,
+  type ProtobufParseOptions,
+} from './parsers/protobuf.js';
+
+// gRPC Generator
+export {
+  GrpcGenerator,
+  generateGrpc,
+  generateProtoFile,
+  type GrpcGeneratorOptions,
+  type GrpcGeneratorOutput,
+  type GrpcServiceInfo,
+  type GrpcMethodInfo,
+} from './generators/grpc-generator.js';
 
 // ============================================================================
-// Phase 5: DataLoader and Stream Bridge (TODO)
+// Phase 5: DataLoader and Stream Bridge
 // ============================================================================
-// export * from './runtime/dataloader.js';
-// export * from './runtime/stream-bridge.js';
+
+// DataLoader Auto-Injection
+export {
+  DataLoaderManager,
+  RequestDataLoaderScope,
+  detectBatchableEndpoints,
+  createDataLoaderMiddleware,
+  createDataLoaderManager,
+  createDataLoaderContext,
+  analyzeN1Patterns,
+  type BatchableEndpoint,
+  type DataLoaderOptions,
+  type ManualBatchEndpoint,
+  type BatchFunction,
+  type DataLoaderStats,
+} from './runtime/dataloader.js';
+
+// Stream Bridge (gRPC Stream ↔ WebSocket/SSE)
+export {
+  SSEAdapter,
+  WebSocketAdapter,
+  StreamAsyncIterator,
+  StreamBridgeManager,
+  MemoryStreamSource,
+  MemoryStreamSink,
+  createStreamBridgeManager,
+  createSSEAdapter,
+  createWebSocketAdapter,
+  createStreamAsyncIterator,
+  type StreamMessage,
+  type StreamEvent,
+  type StreamStatus,
+  type SSEBridgeOptions,
+  type WebSocketBridgeOptions,
+  type StreamBridgeOptions,
+  type StreamBridgeHooks,
+  type StreamConnectionInfo,
+  type StreamSource,
+  type StreamSink,
+  type StreamBridgeStats,
+} from './runtime/stream-bridge.js';
 
 // ============================================================================
-// Phase 6: Hot Reload and Admin (TODO)
+// Phase 6: Hot Reload, Admin, and GraphQL SDL Parser
 // ============================================================================
-// export * from './parsers/graphql.js';
-// export * from './watcher/schema-watcher.js';
-// export * from './watcher/hot-reload.js';
+
+// GraphQL SDL Parser
+export {
+  GraphQLSDLParser,
+  parseGraphQLFile,
+  parseGraphQLString,
+  type GraphQLParseOptions,
+} from './parsers/graphql.js';
+
+// Schema Watcher
+export {
+  SchemaWatcher,
+  createSchemaWatcher,
+  detectSchemaFormat,
+  type SchemaChangeType,
+  type SchemaChangeEvent,
+  type SchemaFormat,
+  type SchemaWatcherOptions,
+  type SchemaWatcherStats,
+} from './watcher/schema-watcher.js';
+
+// Hot Reload Manager
+export {
+  HotReloadManager,
+  createHotReloadManager,
+  type HotReloadOptions,
+  type ReloadState,
+  type HotReloadEvent,
+  type HotReloadError,
+  type ReloadHistoryEntry,
+  type HotReloadStats,
+} from './watcher/hot-reload.js';
+
+// Admin API
+export {
+  adminPlugin,
+  registerAdminAPI,
+  type AdminOptions,
+  type SchemaInfo,
+  type ServiceInfo,
+  type MethodInfo as AdminMethodInfo,
+  type RouteInfo as AdminRouteInfo,
+  type AdminStatsResponse,
+} from './server/admin.js';

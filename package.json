@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "description": "A Schema-driven API protocol conversion gateway that seamlessly transforms APIs between REST, GraphQL, and gRPC",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
     }
   },
   "bin": {
-    "chameleon": "./dist/server/cli.js"
+    "chameleon": "./dist/src/server/cli.js"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,8 @@
   },
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.1.0",
+    "@fastify/cors": "^8.5.0",
+    "fastify-plugin": "^4.5.1",
     "@graphql-tools/schema": "^10.0.0",
     "@grpc/grpc-js": "^1.9.0",
     "@grpc/proto-loader": "^0.7.0",
@@ -62,6 +64,7 @@
     "dataloader": "^2.2.2",
     "fastify": "^4.24.0",
     "graphql": "^16.8.0",
+    "graphql-yoga": "^5.19.0",
     "protobufjs": "^7.2.0",
     "ws": "^8.14.0",
     "zod": "^3.22.0"

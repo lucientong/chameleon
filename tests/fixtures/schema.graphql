@@ -1,0 +1,147 @@
+# A simple blog API for testing the GraphQL SDL parser
+
+"""
+A blog post
+"""
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  author: User!
+  tags: [String!]!
+  status: PostStatus!
+  createdAt: String!
+  """
+  Whether the post has been published
+  """
+  published: Boolean!
+  viewCount: Int
+}
+
+"""
+A registered user
+"""
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  posts: [Post!]!
+  role: UserRole!
+}
+
+"""
+Post status values
+"""
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+"""
+User role values
+"""
+enum UserRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+"""
+Result of creating a post
+"""
+union CreatePostResult = Post | ValidationError
+
+"""
+A validation error
+"""
+type ValidationError {
+  field: String!
+  message: String!
+}
+
+"""
+Input for creating a new post
+"""
+input CreatePostInput {
+  title: String!
+  content: String!
+  tags: [String!]
+  status: PostStatus
+}
+
+"""
+Input for updating a post
+"""
+input UpdatePostInput {
+  title: String
+  content: String
+  tags: [String!]
+  status: PostStatus
+}
+
+type Query {
+  """
+  Get a single post by ID
+  """
+  post(id: ID!): Post
+
+  """
+  List all posts with optional filtering
+  """
+  posts(status: PostStatus, limit: Int, offset: Int): [Post!]!
+
+  """
+  Get a user by ID
+  """
+  user(id: ID!): User
+
+  """
+  Search posts by keyword
+  """
+  searchPosts(query: String!, limit: Int): [Post!]!
+
+  """
+  A deprecated field for testing
+  """
+  legacyPosts: [Post!]! @deprecated(reason: "Use posts instead")
+}
+
+type Mutation {
+  """
+  Create a new blog post
+  """
+  createPost(input: CreatePostInput!): CreatePostResult!
+
+  """
+  Update an existing post
+  """
+  updatePost(id: ID!, input: UpdatePostInput!): Post
+
+  """
+  Delete a post
+  """
+  deletePost(id: ID!): Boolean!
+
+  """
+  Publish a post
+  """
+  publishPost(id: ID!): Post
+}
+
+type Subscription {
+  """
+  Subscribe to new posts
+  """
+  postCreated: Post!
+
+  """
+  Subscribe to post updates for a specific post
+  """
+  postUpdated(id: ID!): Post!
+}
+
+"""
+Custom date scalar
+"""
+scalar DateTime
