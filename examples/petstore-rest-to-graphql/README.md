@@ -189,8 +189,8 @@ The gateway exposes several useful endpoints:
 ## Programmatic Usage
 
 ```typescript
-import { OpenAPIParser } from 'chameleon';
-import { createGateway } from 'chameleon';
+import { OpenAPIParser } from 'chameleon-gateway';
+import { createGateway } from 'chameleon-gateway';
 
 // Parse the OpenAPI schema
 const schema = await OpenAPIParser.parseFile('./petstore.yaml');
@@ -228,8 +228,7 @@ interface GatewayOptions {
 }
 ```
 
-## Next Steps
+## Related
 
-- [Phase 4: gRPC Support](../../README.md#phase-4)
-- [Phase 5: DataLoader & Streaming](../../README.md#phase-5)
-- [Phase 6: Hot Reload & Admin Panel](../../README.md#phase-6)
+- [gRPC → REST Example](../grpc-to-rest/) — Parse .proto and generate REST-compatible code
+- [Chameleon README](../../README.md) — Project overview and full API documentation

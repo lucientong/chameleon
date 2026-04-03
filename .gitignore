@@ -33,6 +33,9 @@ tmp/
 temp/
 *.tmp
 
+# Personal docs
+NPM_PUBLISH.md
+
 # Lock files (optional - uncomment if you want to ignore)
 # package-lock.json
 # yarn.lock

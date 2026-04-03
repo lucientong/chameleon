@@ -1,5 +1,5 @@
 {
-  "name": "chameleon",
+  "name": "chameleon-gateway",
   "version": "0.1.0",
   "description": "A Schema-driven API protocol conversion gateway that seamlessly transforms APIs between REST, GraphQL, and gRPC",
   "type": "module",
@@ -13,6 +13,16 @@
   },
   "bin": {
     "chameleon": "./dist/src/server/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

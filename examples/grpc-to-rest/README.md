@@ -28,7 +28,7 @@ service Greeter {
 ### 1. Parse Proto File
 
 ```typescript
-import { parseProtobufFile } from 'chameleon';
+import { parseProtobufFile } from 'chameleon-gateway';
 
 const schema = await parseProtobufFile('./greeter.proto');
 console.log(`Parsed ${schema.services.length} services`);
@@ -37,7 +37,7 @@ console.log(`Parsed ${schema.services.length} services`);
 ### 2. Generate gRPC Code
 
 ```typescript
-import { generateGrpc } from 'chameleon';
+import { generateGrpc } from 'chameleon-gateway';
 
 const output = generateGrpc(schema, {
   packageName: 'greeter',
@@ -63,17 +63,17 @@ You can also use the Chameleon CLI to parse and validate `.proto` files:
 
 ```bash
 # Validate a proto file
-npx chameleon validate greeter.proto
+npx chameleon-gateway validate greeter.proto
 
 # Generate code from a proto file
-npx chameleon generate greeter.proto --output ./generated --target all
+npx chameleon-gateway generate greeter.proto --output ./generated --target all
 ```
 
 ### 4. Start Gateway with Proto
 
 ```bash
 # Start the gateway with a proto file
-npx chameleon start greeter.proto --port 4000 --backend http://localhost:50051
+npx chameleon-gateway start greeter.proto --port 4000 --backend http://localhost:50051
 ```
 
 ## REST Mapping Conventions
@@ -91,11 +91,13 @@ Chameleon automatically infers REST endpoints from gRPC method names:
 
 ## Streaming Methods
 
-Streaming gRPC methods are **not** mapped to REST endpoints by default, since HTTP/1.1 does not natively support bidirectional streaming. However, they are still available through:
+Streaming gRPC methods are **not** mapped to REST endpoints by default, since HTTP/1.1 does not natively support bidirectional streaming. However, they are available through the Stream Bridge:
 
-- **Server-side streaming** → Server-Sent Events (SSE) *(Phase 5)*
-- **Client-side streaming** → Chunked HTTP POST *(Phase 5)*
-- **Bidirectional streaming** → WebSocket *(Phase 5)*
+- **Server-side streaming** → Server-Sent Events (SSE)
+- **Client-side streaming** → Chunked HTTP POST
+- **Bidirectional streaming** → WebSocket
+
+See the [Stream Bridge API](../../README.md) for details.
 
 ## Generated Service Info
 
