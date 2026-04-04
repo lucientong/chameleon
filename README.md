@@ -2,9 +2,11 @@
 
 A Schema-driven API protocol conversion gateway that seamlessly transforms APIs between REST, GraphQL, and gRPC — like a chameleon adapting to its environment.
 
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org)
+[![npm version](https://img.shields.io/npm/v/chameleon-gateway.svg)](https://www.npmjs.com/package/chameleon-gateway)
+[![npm downloads](https://img.shields.io/npm/dm/chameleon-gateway.svg)](https://www.npmjs.com/package/chameleon-gateway)
+[![Node.js Version](https://img.shields.io/node/v/chameleon-gateway.svg)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/npm/l/chameleon-gateway.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [中文文档](./README.zh-CN.md)
 

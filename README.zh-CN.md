@@ -2,9 +2,11 @@
 
 一个 Schema 驱动的 API 协议自动转换网关，像变色龙一样让 API 在 REST、GraphQL 和 gRPC 之间无缝切换。
 
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org)
+[![npm version](https://img.shields.io/npm/v/chameleon-gateway.svg)](https://www.npmjs.com/package/chameleon-gateway)
+[![npm downloads](https://img.shields.io/npm/dm/chameleon-gateway.svg)](https://www.npmjs.com/package/chameleon-gateway)
+[![Node.js Version](https://img.shields.io/node/v/chameleon-gateway.svg)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/npm/l/chameleon-gateway.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub](https://img.shields.io/badge/GitHub-lucientong%2Fchameleon-181717.svg?logo=github)](https://github.com/lucientong/chameleon)
 
 [English](./README.md)
